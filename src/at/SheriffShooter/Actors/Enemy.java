@@ -7,36 +7,36 @@ import org.newdawn.slick.Image;
 
 public class Enemy implements Actor {
 
-    protected float x,y;
+    protected float x, y;
     protected int health;
-    protected Image EnemySprite;
+    protected float speed;
+    protected Image enemySprite; // Corrected variable name
 
-
-
-    public Enemy(float x, float y, Image enemySprite, int health){
+    public Enemy(float x, float y, Image enemySprite, int health, float speed) {
         this.x = x;
         this.y = y;
-        this.EnemySprite = EnemySprite;
+        this.enemySprite = enemySprite; // Corrected initialization
         this.health = health;
+        this.speed = speed;
     }
 
     @Override
     public void update(GameContainer container, int delta) {
-        y --;
+        x += speed * delta; // Move downwards
     }
 
     @Override
     public void render(GameContainer container, Graphics graphics) {
         if (!isDead()) {
-            EnemySprite.drawCentered(x,y);
+            enemySprite.drawCentered(x, y); // Corrected variable name
         }
     }
 
-    public  void takeDamage(int damage){
-            health -= damage;
+    public void takeDamage(int damage) {
+        health -= damage;
     }
 
-    public boolean isDead(){
+    public boolean isDead() {
         return health <= 0;
     }
 

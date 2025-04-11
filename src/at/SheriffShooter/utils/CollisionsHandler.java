@@ -1,4 +1,4 @@
 package at.SheriffShooter.utils;
 
-public class CollisionsChecker {
+public class CollisionsHandler {
 }

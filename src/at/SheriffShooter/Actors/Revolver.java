@@ -11,21 +11,22 @@ public class Revolver implements Actor {
 
     private List<Bullet> bullets;
     private Image bulletSprite;
-    private float x,y;
-    private float dirX,dirY;
+    private float x, y;
 
-
-    public Revolver(){
+    public Revolver(float startX, float startY) {
+        this.x = startX;
+        this.y = startY;
         bullets = new ArrayList<>();
         try {
-            bulletSprite = new Image("res/images/bullet.png");
+            bulletSprite = new Image("testdata/cross.png");
         } catch (SlickException e) {
-            e.printStackTrace();
+            System.err.println("Failed to load bullet image: " + e.getMessage());
         }
-
     }
-    public void shoot(float x, float y, float dirX, float dirY ) {
-    bullets.add(new Bullet(x, y, dirX, dirY, bulletSprite));
+
+    public void shoot(float dirX, float dirY) {
+        float speed = 1; // Set a default speed for bullets
+        bullets.add(new Bullet(speed, x, y, dirX, dirY, bulletSprite));
     }
 
     @Override
@@ -46,7 +47,13 @@ public class Revolver implements Actor {
             bullet.render(container, graphics);
         }
     }
+
     public List<Bullet> getBullets() {
         return bullets;
     }
+    public void setPosition(float x, float y){
+        this.x = x;
+        this.y = y;
+    }
 }
+
