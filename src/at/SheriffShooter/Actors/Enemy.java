@@ -11,20 +11,40 @@ public class Enemy implements Actor {
     protected int health;
     protected Image EnemySprite;
 
-    public  void takeDamage(int damage){
 
+
+    public Enemy(float x, float y, Image enemySprite, int health){
+        this.x = x;
+        this.y = y;
+        this.EnemySprite = EnemySprite;
+        this.health = health;
     }
 
-    public boolean isDead(){
-        return false;
-    }
     @Override
     public void update(GameContainer container, int delta) {
-
+        y --;
     }
 
     @Override
     public void render(GameContainer container, Graphics graphics) {
+        if (!isDead()) {
+            EnemySprite.drawCentered(x,y);
+        }
+    }
 
+    public  void takeDamage(int damage){
+            health -= damage;
+    }
+
+    public boolean isDead(){
+        return health <= 0;
+    }
+
+    public float getX() {
+        return x;
+    }
+
+    public float getY() {
+        return y;
     }
 }
