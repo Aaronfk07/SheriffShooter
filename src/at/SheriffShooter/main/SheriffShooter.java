@@ -1,8 +1,12 @@
 package at.SheriffShooter.main;
 
 import org.newdawn.slick.*;
+import org.newdawn.slick.state.StateBasedGame;
+
 
 public class SheriffShooter extends BasicGame {
+
+
     public SheriffShooter(String title) {
         super(title);
     }
@@ -12,8 +16,9 @@ public class SheriffShooter extends BasicGame {
 
     }
 
+
     @Override
-    public void update(GameContainer gameContainer, int i) throws SlickException {
+    public void update(GameContainer gameContainer, int delta) throws SlickException {
 
     }
 
