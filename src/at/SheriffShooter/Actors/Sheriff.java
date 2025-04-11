@@ -9,16 +9,16 @@ import org.newdawn.slick.Input;
 public class Sheriff implements Actor {
 
     private Revolver revolver;
-    private Image I_Sheriff;
+    private Image sheriffSprite;
     private float x,y;
     private float speed;
 
 
-    public Sheriff(float x, float y, float speed, Image I_Sheriff){
+    public Sheriff(float x, float y, float speed, Image sheriffSprite){
         this.x = x;
         this.y = y;
         this.speed = speed;
-        this.I_Sheriff = I_Sheriff;
+        this.sheriffSprite = sheriffSprite;
         this.revolver = new Revolver();
     }
     @Override
@@ -43,7 +43,7 @@ public class Sheriff implements Actor {
 
     @Override
     public void render(GameContainer container, Graphics graphics) {
-        I_Sheriff.drawCentered(x,y);
+        sheriffSprite.drawCentered(x,y);
         revolver.render(container, graphics);
     }
 

@@ -3,11 +3,13 @@ package at.SheriffShooter.Actors;
 import at.SheriffShooter.core.Actor;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 
 public class Enemy implements Actor {
 
-    private  float x,y;
-    private int health;
+    protected float x,y;
+    protected int health;
+    protected Image EnemySprite;
 
     public  void takeDamage(int damage){
 

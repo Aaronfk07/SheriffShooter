@@ -11,14 +11,14 @@ public class Bullet implements Actor {
     private float speed;
     private float dx, dy;
     private boolean active = true;
-    private Image I_bullet;
+    private Image bulletSprite;
 
 
-    public Bullet(float speed,float x, float y, float dirX, float dirY, Image I_bullet){
+    public Bullet(float speed, float x, float y, float dirX, float dirY, Image bulletSprite){
         this.x = x;
         this.y = y;
         this.speed = speed;
-        this.I_bullet = I_bullet;
+        this.bulletSprite = bulletSprite;
 
         float length = (float) Math.sqrt(dirX * dirX+ dirY * dirY);
         this.dx = (dirX / length) * speed;
@@ -40,7 +40,7 @@ public class Bullet implements Actor {
 
     @Override
     public void render(GameContainer container, Graphics graphics) {
-    if(active) I_bullet.drawCentered(x,y);
+    if(active) bulletSprite.drawCentered(x,y);
     }
 
     public boolean checkCollision(Enemy enemy) {
