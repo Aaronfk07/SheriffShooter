@@ -1,4 +1,4 @@
 package at.SheriffShooter.Actors;
 
-public class Player {
+public class Revolver {
 }

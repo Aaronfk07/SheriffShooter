@@ -1,4 +1,4 @@
 package at.SheriffShooter.Actors;
 
-public interface Actor {
+public class Sheriff {
 }
