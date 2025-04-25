@@ -4,6 +4,7 @@ import at.SheriffShooter.Actors.Enemy;
 import at.SheriffShooter.Actors.Sheriff;
 import at.SheriffShooter.core.Actor;
 import org.newdawn.slick.*;
+import org.newdawn.slick.tiled.TiledMap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,8 @@ public class SheriffShooter extends BasicGame {
     private Image sheriffSprite;
     private List<Actor> actors;
     private Image enemySprite;
+
+    private TiledMap map;
 
     public SheriffShooter(String title) {
         super(title);
@@ -30,6 +33,9 @@ public class SheriffShooter extends BasicGame {
         actors.add(sheriff);
 
         createEnemies();
+
+        map = new TiledMap("maps/testmap.tmx");
+
     }
 
     @Override
@@ -45,6 +51,8 @@ public class SheriffShooter extends BasicGame {
         for (Actor actor : actors) {
             actor.render(gameContainer, graphics); // Update each actor
         }
+
+        map.render(0,0);
     }
 
     public static void main(String[] argv) {
@@ -61,9 +69,9 @@ public class SheriffShooter extends BasicGame {
     }
 
     private void createEnemies() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 2; i++) {
             float speed = 0.1F;
-            Enemy enemy = new Enemy(100 + i * 50, 300, enemySprite, 3,speed); // Position enemies with some spacing
+            Enemy enemy = new Enemy(100 + i * 50, 300, enemySprite, 1 ,speed); // Position enemies with some spacing
             actors.add(enemy);
         }
     }
